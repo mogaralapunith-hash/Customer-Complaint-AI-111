@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6a11cb,
+            #2575fc
+        );
+
+    color: #222;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    width: 100%;
+
+    padding: 20px 80px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #6a11cb;
+}
+
+
+.nav-links {
+    display: flex;
+
+    gap: 30px;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+
+    color: #333;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    color: #6a11cb;
+}
+
+
+/* ================= MAIN ================= */
+
+.container {
+    width: 700px;
+
+    max-width: 90%;
+
+    margin: 60px auto;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.header h1 {
+    font-size: 30px;
+
+    color: #333;
+
+    margin-bottom: 10px;
+}
+
+
+.header p {
+    color: #666;
+
+    font-size: 15px;
+}
+
+
+/* ================= LABEL ================= */
+
+label {
+    display: block;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+    color: #333;
+}
+
+
+/* ================= TEXTAREA ================= */
+
+textarea {
+    width: 100%;
+
+    height: 180px;
+
+    padding: 15px;
+
+    border: 2px solid #ddd;
+
+    border-radius: 12px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 15px;
+
+    resize: vertical;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+textarea:focus {
+    border-color: #6a11cb;
+
+    box-shadow:
+        0 0 0 3px rgba(106, 17, 203, 0.1);
+}
+
+
+/* ================= BUTTON ================= */
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6a11cb,
+            #2575fc
+        );
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 117, 252, 0.3);
+}
+
+
+/* ================= RESULT ================= */
+
+.result-box {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: #f3f0ff;
+
+    border-left: 5px solid #6a11cb;
+}
+
+
+.result-box h2 {
+    margin-bottom: 12px;
+
+    color: #6a11cb;
+}
+
+
+.prediction {
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #333;
+}
+
+
+/* ================= ISSUE ================= */
+
+.issue-box {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: #eef7ff;
+
+    border-left: 5px solid #2575fc;
+}
+
+
+.issue-box h2 {
+    margin-bottom: 12px;
+
+    color: #2575fc;
+}
+
+
+.issue-box p {
+    line-height: 1.7;
+
+    color: #444;
+}
+
+
+/* ================= UPLOAD ================= */
+
+.upload-box {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: #fff7e6;
+
+    border-left: 5px solid #ff9800;
+}
+
+
+.upload-box h2 {
+    color: #e68900;
+
+    margin-bottom: 10px;
+}
+
+
+.upload-box p {
+    margin-bottom: 15px;
+
+    color: #555;
+}
+
+
+input[type="file"] {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 2px dashed #ddd;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+
+/* ================= DELIVERY ================= */
+
+.delivery-box {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: #eefbf3;
+
+    border-left: 5px solid #28a745;
+}
+
+
+.delivery-box h2 {
+    color: #218838;
+
+    margin-bottom: 10px;
+}
+
+
+.delivery-box p {
+    color: #555;
+
+    margin-bottom: 20px;
+}
+
+
+.delivery-box input {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: 2px solid #ddd;
+
+    border-radius: 10px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+}
+
+
+.delivery-box input:focus {
+    outline: none;
+
+    border-color: #28a745;
+}
+
+
+/* ================= INFO ================= */
+
+.info-section,
+.contact-section {
+    margin-top: 40px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #ddd;
+
+    text-align: center;
+}
+
+
+.info-section h2,
+.contact-section h2 {
+    margin-bottom: 12px;
+
+    color: #333;
+}
+
+
+.info-section p,
+.contact-section p {
+    color: #666;
+
+    line-height: 1.7;
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.categories {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.categories span {
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background: #f1f1f1;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 18px 25px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .container {
+        padding: 25px;
+
+        margin: 30px auto;
+    }
+
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+}

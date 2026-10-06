@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Complaint AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🤖 Customer Complaint AI
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ================= MAIN CONTAINER ================= -->
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>
+                Customer Complaint Classifier
+            </h1>
+
+            <p>
+                Describe your complaint and let AI identify
+                the issue and provide a smart resolution.
+            </p>
+
+        </div>
+
+
+        <!-- ================= COMPLAINT FORM ================= -->
+
+        <form action="/predict" method="POST">
+
+            <label for="complaint">
+                📝 Enter Your Complaint
+            </label>
+
+            <textarea
+                id="complaint"
+                name="complaint"
+                placeholder="Example: My product arrived damaged..."
+                required
+            >{{ complaint if complaint else '' }}</textarea>
+
+
+            <button type="submit">
+                🔍 Analyze Complaint
+            </button>
+
+        </form>
+
+
+        <!-- ================= AI RESULT ================= -->
+
+        {% if prediction %}
+
+        <div class="result-box">
+
+            <h2>
+                🤖 AI Prediction
+            </h2>
+
+            <div class="prediction">
+                {{ prediction }}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ================= ISSUE RESOLUTION ================= -->
+
+        {% if issue %}
+
+        <div class="issue-box">
+
+            <h2>
+                💡 Issue Resolution
+            </h2>
+
+            <p>
+                {{ issue }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ================= IMAGE UPLOAD ================= -->
+
+        {% if show_upload %}
+
+        <div class="upload-box">
+
+            <h2>
+                📷 Upload Product Image
+            </h2>
+
+            <p>
+                Please upload a clear photo of the product
+                related to your complaint.
+            </p>
+
+            <form
+                action="/upload"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    required
+                >
+
+                <button type="submit">
+                    📤 Upload Image
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ================= DELIVERY DETAILS ================= -->
+
+        {% if show_delivery_form %}
+
+        <div class="delivery-box">
+
+            <h2>
+                🚚 Delivery Details
+            </h2>
+
+            <p>
+                Please provide your order details so we can
+                check the delivery status.
+            </p>
+
+            <form
+                action="/delivery_details"
+                method="POST"
+            >
+
+                <label>
+                    Order ID
+                </label>
+
+                <input
+                    type="text"
+                    name="order_id"
+                    placeholder="Enter your Order ID"
+                    required
+                >
+
+
+                <label>
+                    Expected Delivery Date
+                </label>
+
+                <input
+                    type="date"
+                    name="delivery_date"
+                    required
+                >
+
+
+                <button type="submit">
+                    🚚 Check Delivery
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <div class="info-section" id="about">
+
+            <h2>
+                About Customer Complaint AI
+            </h2>
+
+            <p>
+                Customer Complaint AI uses Machine Learning
+                to classify customer complaints into different
+                categories and provide an appropriate resolution.
+            </p>
+
+            <div class="categories">
+
+                <span>📦 Damaged Product</span>
+
+                <span>🚚 Late Delivery</span>
+
+                <span>❌ Wrong Item</span>
+
+                <span>💰 Refund</span>
+
+                <span>💳 Payment Issue</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="contact-section" id="contact">
+
+            <h2>
+                Contact Support
+            </h2>
+
+            <p>
+                Need additional help? Our support team
+                will assist you with your complaint.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Customer Complaint AI | Powered by Machine Learning 🤖
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
