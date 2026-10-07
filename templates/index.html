@@ -103,6 +103,56 @@
                 {{ issue }}
             </p>
 
+            {% if summary %}
+            <p class="answer-summary"><strong>Summary:</strong> {{ summary }}</p>
+            {% endif %}
+
+            {% if analysis %}
+            <h3>What we found</h3>
+            <p>{{ analysis }}</p>
+            {% endif %}
+
+            {% if steps %}
+            <h3>What happens next</h3>
+            <ol>
+                {% for step in steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+            {% endif %}
+
+            {% if recovery %}
+            <h3>Recovery options</h3>
+            <ul>
+                {% for option in recovery %}
+                <li><strong>{{ option.title }}</strong> — {{ option.detail }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if alternatives %}
+            <h3>Alternatives you can choose</h3>
+            <ul>
+                {% for alt in alternatives %}
+                <li>{{ alt }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if timeline %}
+            <h3>Timeline</h3>
+            <p>{{ timeline }}</p>
+            {% endif %}
+
+            {% if need_from_you %}
+            <h3>What we need from you</h3>
+            <ul>
+                {% for item in need_from_you %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
         </div>
 
         {% endif %}

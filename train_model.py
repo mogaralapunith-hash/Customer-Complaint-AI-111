@@ -83,7 +83,8 @@ model = Pipeline([
         "vectorizer",
         TfidfVectorizer(
             lowercase=True,
-            ngram_range=(1, 2)
+            ngram_range=(1, 3),
+            sublinear_tf=True
         )
     ),
 
