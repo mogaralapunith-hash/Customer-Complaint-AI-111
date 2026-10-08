@@ -59,9 +59,19 @@ export function About() {
 
 export function Contact() {
   const items = [
-    { icon: <MailIcon />, title: "Email us", value: "support@complaint-ai.app" },
-    { icon: <PhoneIcon />, title: "Call us", value: "+91 98765 43210" },
-    { icon: <ClockIcon />, title: "Support hours", value: "Mon – Sat, 9 AM – 7 PM IST" }
+    {
+      icon: <MailIcon />,
+      title: "Email us",
+      value: "mogaralapunith@gmail.com",
+      href: "mailto:mogaralapunith@gmail.com"
+    },
+    {
+      icon: <PhoneIcon />,
+      title: "Call us",
+      value: "7075272498",
+      href: "tel:+917075272498"
+    },
+    { icon: <ClockIcon />, title: "Support hours", value: "24/7" }
   ];
 
   return (
@@ -82,7 +92,15 @@ export function Contact() {
               {item.icon}
             </span>
             <h3>{item.title}</h3>
-            <p>{item.value}</p>
+            {item.href ? (
+              <p>
+                <a className="contact__link" href={item.href}>
+                  {item.value}
+                </a>
+              </p>
+            ) : (
+              <p>{item.value}</p>
+            )}
           </article>
         ))}
       </div>
@@ -93,11 +111,12 @@ export function Contact() {
 export function Footer() {
   return (
     <footer className="footer">
-      <p>
-        <strong>Customer Complaint AI</strong> · a simple ML help desk
+      <p className="footer__credit">
+        <span className="footer__by">Developed by</span>
+        <strong className="footer__name">Mogarala Punith Sai</strong>
       </p>
       <p className="footer__meta">
-        © 2026 · powered by scikit-learn + Flask + React · no warehouses were harmed
+        Customer Complaint AI · powered by scikit-learn + Flask + React
       </p>
     </footer>
   );
