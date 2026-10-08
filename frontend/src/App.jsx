@@ -4,6 +4,7 @@ import ComplaintForm from "./components/ComplaintForm.jsx";
 import ResultPanel from "./components/ResultPanel.jsx";
 import { About, Contact, Footer } from "./components/Sections.jsx";
 import { fetchPrediction } from "./lib/api.js";
+import { analyzeComplaint } from "./lib/classifier.js";
 import HeroPanel from "./components/HeroPanel.jsx";
 import { CloudIcon } from "./components/Icons.jsx";
 
@@ -24,16 +25,20 @@ export default function App() {
     try {
       const data = await fetchPrediction(complaint);
       setResult(data);
-      window.setTimeout(() => {
-        document
-          .getElementById("results")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 80);
-    } catch (error) {
-      setToast({ message: error.message, type: "error", id: Date.now() });
-    } finally {
-      setLoading(false);
+    } catch {
+      setResult(analyzeComplaint(complaint));
+      setToast({
+        message: "Server unreachable — showing on-device analysis.",
+        type: "info",
+        id: Date.now()
+      });
     }
+    window.setTimeout(() => {
+      document
+        .getElementById("results")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+    setLoading(false);
   };
 
   const handleComplete = (message, type = "success", detail = "") => {
